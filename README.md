@@ -1,7 +1,7 @@
 #字作字演bot返信ファイル
 
 
-twitterの[字作字演botアカウント](https://twitter.com/jisakujien_typo/)の返信内容を記載したファイルです。
+twitterの[字作字演botアカウントによる返信](https://twitter.com/jisakujien_typo/with_replies)の内容を記載したファイルです。
 
 - `tl_pattern.php` ←タイムラインに反応する返事
 - `reply_pattern.php` ←@jisakujien_typo宛のリプライに反応する返事
@@ -9,12 +9,12 @@ twitterの[字作字演botアカウント](https://twitter.com/jisakujien_typo/)
 の二種類のファイルによって成り立っています。
 
 
-そもそも字作字演botは、EasyBotterというプログラムによって動いています。返信の方法や編集の仕方などは、
-[ここ](http://pha22.net/twitterbot/2.0/pattern.php)などを参考にしてください。
-
-
 
 ##記述ルール
+
+そもそも字作字演botは、[EasyBotter](http://pha22.net/twitterbot/)というプログラムによって動いています。返信の方法や編集の仕方などは、
+[ここ](http://pha22.net/twitterbot/2.0/pattern.php)などを参考にしてください。phpの連想配列形式で書いてください。正規表現も使用可能です。
+
 
 ```sass
 //「もじもじ」に対する返信
@@ -24,7 +24,16 @@ twitterの[字作字演botアカウント](https://twitter.com/jisakujien_typo/)
 ),
 
 ```
-という区切りで追加してもらえるといいですね。
+
+という区切り単位で追加してもらえるといいですね。
+上のほうにあるものから反応してしまうので、`文字`とか`タイポ`みたいな頻繁に出てきてしまう単語は極力後ろに配置するようにしてください。
+
+- 大日本タイポ組合
+- 大日本タイポ
+- タイポ
+
+というような順番だと、うまいこと反応します。逆だと全部**タイポ**に反応してしまう。
+
 
 - `tl_pattern.php` では、タイムラインにちょいちょい出てくるワードをさらっと拾うような感じで、
 - `reply_pattern.php` では、その返事に対する反応を想像しながら深いところまでえぐるような感じで
