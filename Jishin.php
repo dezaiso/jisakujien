@@ -40,7 +40,7 @@ foreach($xml_tree->channel->item as $k => $v){
 continue;
   }
  
-  if ($pubtime < date('Y-m-d H:i:s',time() - 360)){//前回から6分（360秒）以内なら処理しないで次へ
+  if ($pubtime < date('Y-m-d H:i:s',time() - 900)){//前回から15分（900秒）以内なら処理しないで次へ
 continue;//TEST時はここをコメントアウト
   }
  
