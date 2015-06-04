@@ -15,7 +15,7 @@ $last_pubtime = date('Y-m-d H:i:s',time()-300);
 }
  
 //$last_pubtime = '2011-03-11 14:00:00';//TEST
- 
+
 $xml = file_get_contents('http://weather.goo.ne.jp/earthquake/index.rdf');//地震情報 - goo 天気
 $xml_tree = simplexml_load_string($xml);
  
@@ -35,34 +35,45 @@ $result = array();
 foreach($xml_tree->channel->item as $k => $v){
   $text = (string)$v->title;
   $pubtime = date('Y-m-d H:i:s',strtotime((string)$v->pubDate));
+  
+
+//以下テストのためいったんコメントアウト
+//  if ($pubtime <= $last_pubtime){
+//continue;
+//  }
  
-  if ($pubtime <= $last_pubtime){
-continue;
-  }
- 
-  if ($pubtime < date('Y-m-d H:i:s',time() - 900)){//前回から15分（900秒）以内なら処理しないで次へ
-continue;//TEST時はここをコメントアウト
-  }
+//  if ($pubtime < date('Y-m-d H:i:s',time() - 900)){//前回から15分（900秒）以内なら処理しないで次へ
+//continue;//TEST時はここをコメントアウト
+//  }
  
   //震度を取得し、指定以上ならフラグ立て、処理を終了
   preg_match('/震度([0-9]+)[強弱]*/',$text,$matches);
   preg_match('/\[震源地\](.*)\[最大震度\]/',$text,$matches_basyo);
+  preg_match('/\(20(.*)分頃発生/',$text,$matches_time);
   $shindo = $matches[1];
  
-  if (is_numeric($shindo) && (int)$shindo >= 3){//震度3の場合
+  if (is_numeric($shindo) && (int)$shindo >= 1){//テストのため震度1でも動作するようにする
 $result['num'] = (int)$matches[1];
 $result['str'] = $matches[0];
 $result['pubtime'] = $pubtime;
 $result['text'] = $text;
 $result['basyo'] = trim($matches_basyo[1],"　");
-//$result['word'] = $shindo_str."の地震が".$shindo_basyo."で起きましたので、停止いたします。";//ツィートされます。
-$result['word'] = "字、字……、いや、地震ですかっ!　".$shindo_basyo."あたりで".$shindo_str."くらい？";//ツィートされます。
+$result['time'] = trim($matches_time[1],"　");
+$result['word'] = "字、字……、いや、地震ですかっ!　20".$result['time']."分ころ".$result['basyo']."あたりで".$result['str']."くらい？"; //ツィートされます。
+//$result['word'] = "字、字……、いや、地震ですかっ!　".$shindo_basyo."あたりで".$shindo_str."くらい？"; //ツィートされます。
 break;
 }
   }
  
-echo $result['text']."<br /><br />";
- 
+echo $result['word']."<br /><br />";
+
+//地震ファイルを用意し、書き換える
+$jishinmemo = $result['word'];
+$fp = fopen("jishin.txt", "w");//ファイル名を変える
+fwrite($fp, "$jishinmemo");
+fclose($fp);
+
+
 return $result;
  
 }
