@@ -19,11 +19,10 @@ $ebo = new Easy_botter_org();
 // 状態フラグ $joutai
 //    [0]quake:地震が起きた
 //=============================
-    $joutai_txt = file_get_contents("Jishin_joutai.txt");
-    if($joutai_txt !== ""){
-        $joutai = unserialize($joutai_txt);
-	}
-	
+//    $joutai_txt = file_get_contents("Jishin_joutai.txt");
+//    if($joutai_txt !== ""){
+//        $joutai = unserialize($joutai_txt);
+//	}
 //=============================
 //地震のときに停止するならコメントアウトを外すこと。
 //=============================
@@ -38,26 +37,34 @@ $ebo = new Easy_botter_org();
  
 $shindo = $ebo->jisin();
  
-if( $shindo['num'] > 0){ //値が返ってきてたら
-  $joutai[0] = TRUE; //「地震が起きた」フラグを立てる
-}
+//if( $shindo['num'] > 0){ //値が返ってきてたら
+//  $joutai[0] = TRUE; //「地震が起きた」フラグを立てる
+//}
  
 //=============================
 //フラグファイル格納。
 //=============================
-    $response = file_put_contents("Jishin_joutai.txt" , serialize($joutai));
+//    $response = file_put_contents("Jishin_joutai.txt" , serialize($joutai));
  
 //=============================
 //地震についてツイート。（動作未確認）
 //=============================
-if($dousa[0] !== NULL){
-    if($dousa[0]['word'] !== ""){
-        $response = $eb->setUpdate(array("status"=>$dousa[30]['word']));
- 
-    } else if($dousa[0]['data'] !== ""){
-        $response = $eb->postRandom($dousa[0]['data']);
-    }
+// if($dousa[0] !== NULL){
+//     if($dousa[0]['word'] !== ""){
+//         $response = $eb->setUpdate(array("status"=>$dousa[30]['word']));
+//  
+//     } else if($dousa[0]['data'] !== ""){
+//         $response = $eb->postRandom($dousa[0]['data']);
+//     }
+// }
+
+if($shindo >= 1){
+	$response = $eb->postRandom("jishin.txt");
+	$fp = fopen("jishin.txt", "w"); // ツイート後すぐに初期化
+	fwrite($fp, "");
+	fclose($fp);
 }
+
 
 //=============================
 //地震関連ここまで
