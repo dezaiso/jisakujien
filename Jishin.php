@@ -52,7 +52,7 @@ foreach($xml_tree->channel->item as $k => $v){
   preg_match('/\(20(.*)分頃発生/',$text,$matches_time);
   $shindo = $matches[1];
  
-  if (is_numeric($shindo) && (int)$shindo >= 1){//震度3の場合
+  if (is_numeric($shindo) && (int)$shindo >= 1){//テストのため震度1でも動作するようにする
 $result['num'] = (int)$matches[1];
 $result['str'] = $matches[0];
 $result['pubtime'] = $pubtime;
