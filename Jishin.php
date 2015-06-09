@@ -58,7 +58,7 @@ $result['pubtime'] = $pubtime;
 $result['text'] = $text;
 $result['basyo'] = trim($matches_basyo[1],"　");
 $result['time'] = trim($matches_time[1],"　");
-$result['word'] = "字、字……、いや、地震ですかっ!　20".$result['time']."分ころ".$result['basyo']."あたりで".$result['str']."くらい？"; //ツィートされる
+$result['word'] = "字、字……、いや、地震ですかっ!　20".$result['time']."分、最大".$result['str']."、震源地は".$result['basyo']."とのことです！"; //ツィートされる
 break;
 }
   }
