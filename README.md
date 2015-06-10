@@ -58,6 +58,6 @@ https://github.com/dezaiso/jisakujien/wiki/Github-Flow
 
 みんなで字作字演botを育てていきましょう。よろしくお願いしマシューカーター #グッドデザイソ
 
-###LICENSE
+##ライセンスについて
 - [本プログラムはMITライセンスの元公開しています。](https://github.com/dezaiso/jisakujien/blob/master/LICENSE.md)
 - [EasyBotterはpha氏がPHPライセンスの元公開しています。](https://github.com/dezaiso/jisakujien/blob/master/EasyBotter_LICENSE.txt)
