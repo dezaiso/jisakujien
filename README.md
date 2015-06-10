@@ -57,3 +57,7 @@ https://github.com/dezaiso/jisakujien/wiki/Github-Flow
 くれぐれも、**文字に関する単語など、[字作字演bot](https://twitter.com/jisakujien_typo/)がフォローしているアカウントが話題にしそうなワードに絶妙に反応し、返事はできるだけダジャレを含めて返す**ようにしてください。字作字演のキャラクター形成のためにもよろしくおねがいします。
 
 みんなで字作字演botを育てていきましょう。よろしくお願いしマシューカーター #グッドデザイソ
+
+###LICENSE
+- [本プログラムはMITライセンスの元公開しています。](https://github.com/dezaiso/jisakujien/blob/master/LICENSE.md)
+- [EasyBotterはpha氏がPHPライセンスの元公開しています。](https://github.com/dezaiso/jisakujien/blob/master/EasyBotter_LICENSE.txt)
