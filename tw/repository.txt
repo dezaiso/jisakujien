@@ -1,1 +1,1 @@
-わたくし字作字演botのツイート内容、こんな漢じにしたい！　ってご要望あったら、字itHubにリポ字トリ置いときますからプルリクエストしてくださいね→ https://github.com/dezaiso/jisakujien #字作字演
+字作字演 BOT の中の人などいない！　というわけで、字itHubにリポ字トリ置いときますね→ https://github.com/dezaiso/jisakujien セリフや機能を追加したかったらプルリクエストもらえば文ー字、いや、マー字します！ #字作字演
