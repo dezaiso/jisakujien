@@ -45,6 +45,9 @@ else if($hour  == 22 && $minute == 0){
 else if($hour  == 9 && $month == 1 && $date == 1){
     $response = $eb->postRandom("./tw/0101.txt");
 }
+else if($hour  == 21 && $minute == 0 && $month == 6 && $date == 11){
+    $response = $eb->postRandom("./tw/repository.txt");
+}
 //=============================
 //曜日によってbotが読み込むファイルを指定
 //=============================
