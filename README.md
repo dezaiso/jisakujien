@@ -3,10 +3,13 @@
 
 twitterの[字作字演botアカウントによる返信](https://twitter.com/jisakujien_typo/with_replies)の内容を記載したファイルです。
 
-- `tl_pattern.php` ←タイムラインに流れるツイートに反応する返事
-- `reply_pattern.php` ←@jisakujien_typo宛のリプライに対する返事
+- [`tl_pattern.php`](https://github.com/dezaiso/jisakujien/blob/master/tl_pattern.php) ←タイムラインに流れるツイートに反応する返事
+- [`reply_pattern.php`](https://github.com/dezaiso/jisakujien/blob/master/reply_pattern.php) ←@jisakujien_typo宛のリプライに対する返事
+- [`tw/reply.txt`](https://github.com/dezaiso/jisakujien/blob/master/tw/reply.txt) ←`reply_pattern.php`でひっかからなかったツイートへの返信
+- [`tw/data.txt`](https://github.com/dezaiso/jisakujien/blob/master/tw/data.txt) ←定期的にツイートする内容
 
-の二種類のファイルによって成り立っています。
+
+の4種類のファイルによって成り立っています。
 
 
 
@@ -18,7 +21,7 @@ https://github.com/dezaiso/jisakujien/wiki/Github-Flow
 
 ##記述ルール
 
-そもそも字作字演botは、[EasyBotter](http://pha22.net/twitterbot/)というプログラムによって動いています。返信の方法や編集の仕方などは、
+そもそも字作字演botは、[EasyBotter](http://pha22.net/twitterbot/)というプログラムによって動いています。タイムラインに反応する形の返信の方法や編集の仕方などは、
 [ここ](http://pha22.net/twitterbot/2.0/pattern.php)などを参考にしてください。phpの連想配列形式で書いてください。正規表現も使用可能です。
 
 反応する単語はすでに存在して、返信文だけを追記する場合は該当箇所に追加するようにしてください。
