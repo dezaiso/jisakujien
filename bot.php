@@ -5,6 +5,21 @@
 require_once("EasyBotter.php");
 $eb = new EasyBotter();
 
+//=============================
+//タイムラインやリプライに反応
+//=============================
+//bot.phpを実行したときに毎回実行される通常版
+$response = $eb->reply(6,"./tw/reply.txt","reply_pattern.php");
+$response = $eb->replyTimeline(6,"tl_pattern.php");
+
+//=============================
+//date関数を代入する
+//=============================
+$hour = date("G");
+$minute = date("i");
+$month = date("n");
+$date = date("j");
+$weekday = date("w");
 
 //=============================
 //地震関連
@@ -20,15 +35,6 @@ if($shindo >= 3){ // 震度3以上だったら作動
 	fwrite($fp, "");
 	fclose($fp);
 }
-
-//=============================
-//date関数を代入する
-//=============================
-$hour = date("G");
-$minute = date("i");
-$month = date("n");
-$date = date("j");
-$weekday = date("w");
 
 //=============================
 //天気予報をツイートする
@@ -102,13 +108,6 @@ else if($minute == 0){
     $response = $eb->postRandom("./tw/data.txt");
     $response = $eb->autoFollow();
 }
-
-//=============================
-//タイムラインやリプライに反応
-//=============================
-//bot.phpを実行したときに毎回実行される通常版
-$response = $eb->reply(6,"./tw/reply.txt","reply_pattern.php");
-$response = $eb->replyTimeline(6,"tl_pattern.php");
 
 
 ?>
