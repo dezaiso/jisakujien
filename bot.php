@@ -106,7 +106,7 @@ else if($hour  == 17 && $minute == 0){
 // ↓1時間ごと（0分ちょうどに実行・通常版）
 else if($minute == 0){
     $response = $eb->postRandom("./tw/data.txt");
-    $response = $eb->autoFollow();
+//    $response = $eb->autoFollow();
 }
 
 
